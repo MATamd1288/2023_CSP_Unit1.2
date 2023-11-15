@@ -28,6 +28,7 @@ def change_position():
     box.goto(x,y)
     new_xpos = x
     new_ypos = y
+    goto(new_xpos, new_ypos)
 
 
 #-----events----------------
