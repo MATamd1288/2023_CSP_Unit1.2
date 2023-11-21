@@ -2,12 +2,17 @@
 #-----import statements-----
 import turtle as trtl
 import random as rand
+import leaderboard as lb
 wn = trtl.Screen()
 
 #-----game configuration----
 box_color = "black"
 
 #-----initialize turtle-----
+
+#setup for leaderboard
+lb = "a122_leaderboard.txt"
+player_name = input("Whats your name?")
 
 #setup for box
 box = trtl.Turtle()
@@ -32,11 +37,6 @@ timer_up = False
 counter.penup()
 counter.goto(-400, -350)
 
-#setup for leaderboard
-leaderboard_file_name = "a122_leaderboard.txt"
-playername = input("Whats your name?")
-import leaderboard as lb
-
 #-----game functions--------
 
 def change_position():
@@ -48,12 +48,14 @@ def change_position():
     box.goto(new_xpos, new_ypos)
     upscore()
 
+# setup for score counter
 def upscore():
     global score
     score += 1
     scorewriter.clear()
     print(scorewriter.write(score, font = font_setup))
 
+# setup for change position after box click
 def box_clicked(x, y):
     global timer_up
     if timer_up == False:
@@ -61,7 +63,7 @@ def box_clicked(x, y):
     else:
         box.hideturtle()
 
-
+# countdown timer
 def countdown():
   global timer, timer_up
   counter.clear()
@@ -74,15 +76,19 @@ def countdown():
     timer -= 1
     counter.getscreen().ontimer(countdown, counter_interval)
 
+# manages the leaderboard for top 5 scorers
 def manage_leaderboard():
 
   global score
   global box
-  leader_names_list = lb.get_names(leaderboard_file_name)
-  leader_scores_list = lb.get_scores(leaderboard_file_name)
 
+  # get the names and scores from the leaderboard file
+  leader_names_list = lb.get_names(lb)
+  leader_scores_list = lb.get_scores(lb)
+
+  # show the leaderboard with or without the current player
   if (len(leader_scores_list) < 5 or score >= leader_scores_list[4]):
-    lb.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, playername, score)
+    lb.update_leaderboard(lb, leader_names_list, leader_scores_list, player_name, score)
     lb.draw_leaderboard(True, leader_names_list, leader_scores_list, box, score)
 
   else:
