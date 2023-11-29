@@ -11,7 +11,7 @@ box_color = "black"
 #-----initialize turtle-----
 
 #setup for leaderboard
-lb = "a122_leaderboard.txt"
+lb =
 player_name = input("Whats your name?")
 
 #setup for box
