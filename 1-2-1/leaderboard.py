@@ -46,7 +46,7 @@ def get_scores(file_name):
         index += 1
 
         # TODO 4: use a while loop to get the score
-        while (line[index] != "/n"):
+        while (line[index] != "\n"):
             leader_score += line[index]
             index += 1
 
