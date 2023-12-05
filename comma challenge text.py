@@ -26,16 +26,15 @@ csv ="KingsIndian,QueensGambit,TheColle,TheFrench,TheFriedLiver,TheFourKnights"
 index = 0
 myValues = []
 
+
 #Do Part 1 of the challenge below here
 
 for index in range(len(csv)):
     csv += csv[index]
-    index = index + 1
 
     if (csv[index] != ","):
         index += 1
-
-    csv.append(index)
+        myValues.append(index)
 
 #Do part 2 of the challenge below here
 

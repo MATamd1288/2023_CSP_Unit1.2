@@ -80,11 +80,6 @@ def update_leaderboard(file_name, leader_names, leader_scores, player_name, play
         leader_names.pop(5)
         leader_scores.pop(5)
 
-        if (len(leader_scores) > 5):
-            leader_names.pop()
-            leader_scores.pop()
-
-
 
     # TODO 12: store the latest leaderboard back in the file
     leaderboard_file = open(file_name, "w")  # this mode opens the file and erases its contents for a fresh start
@@ -120,18 +115,24 @@ def draw_leaderboard(high_scorer, leader_names, leader_scores, turtle_object, pl
 
     # TODO 14: display message about player making/not making leaderboard
     global manage_leaderboard
-
+    if player_score > leader_scores:
       turtle_object.write("Congratulations!\nYou made the leaderboard!", font=font_setup)
-      turtle_object.write("Sorry!\nYou didn't make the leaderboard.\nMaybe next time!", font=font_setup)
+    else:
+        turtle_object.write("Sorry!\nYou didn't make the leaderboard.\nMaybe next time!", font=font_setup)
 
-    # move turtle to a new line
+# move turtle to a new line
     turtle_object.penup()
     turtle_object.goto(-160, int(turtle_object.ycor()) - 50)
     turtle_object.pendown()
-
+    '''
     # TODO 15: Display a gold/silver/bronze message if player earned a gold/silver/or bronze medal; display nothing if no medal
     '''
-      turtle_object.write("You earned a gold medal!", font=font_setup)
-      turtle_object.write("You earned a silver medal!", font=font_setup)
-      turtle_object.write("You earned a bronze medal!", font=font_setup)
-    '''
+    if (player_score >= bronze_score and player_score < silver_score):
+        turtle_object.write("You earned a gold medal!", font=font_setup)
+    elif (player_score >= silver_score and player_score < gold_score):
+        turtle_object.write("You earned a silver medal!", font=font_setup)
+    elif (player_score >= gold_score):
+        turtle_object.write("You earned a bronze medal!", font=font_setup)
+
+
+

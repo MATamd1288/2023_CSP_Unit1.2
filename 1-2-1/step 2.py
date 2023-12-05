@@ -11,7 +11,6 @@ box_color = "black"
 #-----initialize turtle-----
 
 #setup for leaderboard
-lb =
 player_name = input("Whats your name?")
 
 #setup for box
@@ -31,7 +30,7 @@ font_setup = ("Arial", 20, "normal")
 
 #setup for timer
 counter =  trtl.Turtle()
-timer = 5
+timer = 30
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 counter.penup()
