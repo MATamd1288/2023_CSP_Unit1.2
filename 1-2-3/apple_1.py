@@ -161,7 +161,7 @@ def M():
 # -----function calls-----
 for i in range(5):
   draw_apple(i)
-wn.onkeypress(A, "a")
+
 wn.onkeypress(S, "s")
 wn.onkeypress(D, "d")
 wn.onkeypress(F, "f")
