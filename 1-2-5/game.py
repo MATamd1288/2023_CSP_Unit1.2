@@ -1,11 +1,10 @@
 import turtle as trtl
 
 wn = trtl.Screen()
+wn.bgpic("background.gif")
 runner = trtl.Turtle()
 
 runner.penup()
-
-
 
 #keypress
 def w():
