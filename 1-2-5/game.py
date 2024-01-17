@@ -1,15 +1,14 @@
 import turtle as trtl
 wn = trtl.Screen()
 runner = trtl.Turtle()
-box = trtl.Turtle
+box = trtl.Turtle()
 wn.bgpic("bg2.gif")
-
-
 runner.penup()
 
-#box turtle setup
-box.shape("square")
-
+#turtle position setup
+runner.right(180)
+runner.forward(420)
+runner.right(180)
 
 #keypress
 def w():
